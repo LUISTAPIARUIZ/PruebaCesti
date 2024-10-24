@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm } from '@inertiajs/react';
+import { useForm, Link } from '@inertiajs/react';
 
 const Login = () => {
     const { data, setData, post, errors } = useForm({
@@ -57,10 +57,20 @@ const Login = () => {
 
                 <button
                     type="submit"
-                    className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition"
+                    className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition mb-4"
                 >
                     Iniciar Sesión
                 </button>
+
+                <div className="text-center">
+                    <p className="text-sm text-gray-600 mb-2">¿No tienes una cuenta?</p>
+                    <Link
+                        href="/register"
+                        className="text-blue-500 hover:underline"
+                    >
+                        Regístrate aquí
+                    </Link>
+                </div>
             </form>
         </div>
     );
