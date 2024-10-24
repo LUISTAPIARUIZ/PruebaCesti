@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('contenido');
-            $table->timestamp('fecha_hora_creacion')->useCurrent();
-            $table->timestamps();
+            $table->timestamps(); // Esto agrega automáticamente 'created_at' y 'updated_at'
         });
     }
 

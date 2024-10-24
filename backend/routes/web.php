@@ -1,4 +1,5 @@
 <?php
+// routes/web.php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\PostController;
@@ -16,6 +17,6 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 
 // Rutas de Posts (solo accesibles si el usuario está autenticado)
 Route::middleware('auth')->group(function () {
-    Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+    Route::resource('posts', PostController::class)->except(['show']); // Crear todas las rutas excepto 'show'
 });
+
